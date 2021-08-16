@@ -18,15 +18,15 @@ Resources:
       DBSubnetGroupName: "Subnet Group"
       # Replace these IDs, as applicable to you
       SubnetIds:
-        - Fn::ImportValue: 
-            Name: !Sub ${EnvironmentName}-PRIV-NETS
+        - Fn::ImportValue: !Sub ${EnvironmentName}-PRI1-SN
+        - Fn::ImportValue: !Sub ${EnvironmentName}-PRI2-SN
 
   # Choose a name of your choice    
   myDB: 
     Type: "AWS::RDS::DBInstance"
     Properties: 
       # Replace this ID, as applicable to you. I have used the default SG. 
-      VPCSecurityGroups: [sg-031783deb58005940]
+      VPCSecurityGroups: [sg-015e8bcd043151b55]
       PubliclyAccessible: false
       MultiAZ: false
       AllocatedStorage: 20
